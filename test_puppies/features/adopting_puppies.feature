@@ -3,8 +3,10 @@ Feature: Adopting Puppies
   I want to adopt puppies
   So they can chew my furniture
 
-  Scenario: Adopting one puppy
+  Background:
     Given I am on the puppy adoption site
+
+  Scenario: Adopting one puppy
     When I click the first View Details button
     And I click the Adopt Me button
     And I click the Complete the Adoption button
@@ -16,7 +18,6 @@ Feature: Adopting Puppies
     Then I should see "Thank you for adopting a puppy!"
 
   Scenario: Adopting two puppies
-    Given I am on the puppy adoption site
     When I click the first View Details button
     And I click the Adopt Me button
     And I click the Adopt Another Puppy button
