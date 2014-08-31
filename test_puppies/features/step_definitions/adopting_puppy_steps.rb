@@ -1,3 +1,7 @@
+def row_for(line_item)
+  (line_item - 1) * 6
+end
+
 Given(/^I am on the puppy adoption site$/) do
   @browser.goto 'http://puppies.herokuapp.com'
 end
@@ -22,7 +26,6 @@ When(/^I click the Adopt Another Puppy button$/) do
   @browser.button(value: 'Adopt Another Puppy').click
 end
 
-
 When(/^I enter "(.*?)" in the name field$/) do |name|
   @browser.text_field(id: 'order_name').set(name)
 end
@@ -45,4 +48,16 @@ end
 
 Then(/^I should see "(.*?)"$/) do |message|
   expect(@browser.text).to include(message)
+end
+
+Then(/^I should see "(.*?)" as the name for line item (\d+)$/) do |name, line_item|
+  expect(@browser.table(index: 0)[row_for(line_item.to_i)][1].text).to include(name)
+end
+
+Then(/^I should see "(.*?)" as the subtotal for line item (\d+)$/) do |subtotal, line_item|
+  expect(@browser.table(index: 0)[row_for(line_item.to_i)][3].text).to include(subtotal)
+end
+
+Then(/^I should see "(.*?)" as the cart total$/) do |total|
+  expect(@browser.td(:class => 'total_cell').text).to eq(total)
 end
