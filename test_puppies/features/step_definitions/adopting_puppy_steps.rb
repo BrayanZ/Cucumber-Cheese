@@ -2,12 +2,8 @@ Given(/^I am on the puppy adoption site$/) do
   visit(HomePage)
 end
 
-When(/^I click the first View Details button$/) do
-  on(HomePage).select_puppy_number(1)
-end
-
-When(/^I click the second View Details button$/) do
-  on(HomePage).select_puppy_number(2)
+When(/^I click the View Details button for "(.*?)"$/) do |name|
+  on(HomePage).select_puppy(name)
 end
 
 When(/^I click the Adopt Me button$/) do
