@@ -2,9 +2,9 @@ class CheckoutPage
   include PageObject
 
   DEFAULT_DATA = {
-    'name' => 'Cheezy',
-    'address' => '123 Main St.',
-    'email' => 'cheezy@foo.com',
+    'name' => Faker::Name.name,
+    'address' => Faker::Address.street_address,
+    'email' => Faker::Internet.email,
     'pay_type' => 'Purchase order'
   }
 
