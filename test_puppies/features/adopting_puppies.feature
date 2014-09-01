@@ -10,11 +10,9 @@ Feature: Adopting Puppies
     When I click the View Details button for "Brook"
     And I click the Adopt Me button
     And I click the Complete the Adoption button
-    And I enter "Cheezy" in the name field
-    And I enter "123 Main Street" in the address field
-    And I enter "cheezy@example.com" in the email field
-    And I select "Credit card" from the pay with dropdown
-    And I click the Place Order button
+    And I complete the adoption with:
+      | name   | address         | email              | pay_type    |
+      | Cheezy | 123 Main Street | cheezy@example.com | Credit card |
     Then I should see "Thank you for adopting a puppy!"
 
   Scenario: Adopting two puppies
@@ -24,11 +22,9 @@ Feature: Adopting Puppies
     And I click the View Details button for "Hanna"
     And I click the Adopt Me button
     And I click the Complete the Adoption button
-    And I enter "Cheezy" in the name field
-    And I enter "123 Main Street" in the address field
-    And I enter "cheezy@example.com" in the email field
-    And I select "Credit card" from the pay with dropdown
-    And I click the Place Order button
+    And I complete the adoption with:
+      | name   | address         | email              | pay_type    |
+      | Cheezy | 123 Main Street | cheezy@example.com | Credit card |
     Then I should see "Thank you for adopting a puppy!"
 
   Scenario: Validate cart with one puppy

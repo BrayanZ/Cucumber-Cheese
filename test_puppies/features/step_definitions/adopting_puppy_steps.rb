@@ -18,24 +18,8 @@ When(/^I click the Adopt Another Puppy button$/) do
   on(ShoppingCartPage).continue_shopping
 end
 
-When(/^I enter "(.*?)" in the name field$/) do |name|
-  on(CheckoutPage).name = name
-end
-
-When(/^I enter "(.*?)" in the address field$/) do |address|
-  on(CheckoutPage).address = address
-end
-
-When(/^I enter "(.*?)" in the email field$/) do |email|
-  on(CheckoutPage).email = email
-end
-
-When(/^I select "(.*?)" from the pay with dropdown$/) do |pay_type|
-  on(CheckoutPage).pay_type = pay_type
-end
-
-When(/^I click the Place Order button$/) do
-  on(CheckoutPage).place_order
+When(/^I complete the adoption with:$/) do |table|
+  on(CheckoutPage).checkout_with(table.hashes.first)
 end
 
 Then(/^I should see "(.*?)"$/) do |message|
