@@ -6,7 +6,6 @@ Feature: Adopting Puppies
   Background:
     Given I am on the puppy adoption site
 
-
   Scenario: Thank you message should be displayed
     When I complete the adoption of a puppy
     Then I should see "Thank you for adopting a puppy!"
@@ -17,6 +16,11 @@ Feature: Adopting Puppies
     And I click the Complete the Adoption button
     And I complete the adoption using a Credit card
     Then I should see "Thank you for adopting a puppy!"
+
+  Scenario: Name is a required field
+    When I checkout leaving the name field blank
+    Then I should see the error message "Name can't be blank"
+
 
   Scenario: Adopting a puppy using all default data
     When I click the View Details button for "Brook"
