@@ -46,12 +46,12 @@ Then(/^I should see "(.*?)"$/) do |message|
   expect(@browser.text).to include(message)
 end
 
-Then(/^I should see "(.*?)" as the name for line item (\d+)$/) do |name, line_item|
-  expect(on(ShoppingCartPage).name_for_line_item(line_item.to_i)).to include(name)
+Then(/^I should see "(.*?)" as the name for (line item \d+)$/) do |name, line_item|
+  expect(on(ShoppingCartPage).name_for_line_item(line_item)).to include(name)
 end
 
-Then(/^I should see "(.*?)" as the subtotal for line item (\d+)$/) do |subtotal, line_item|
-  expect(on(ShoppingCartPage).subtotal_for_line_item(line_item.to_i)).to include(subtotal)
+Then(/^I should see "(.*?)" as the subtotal for (line item \d+)$/) do |subtotal, line_item|
+  expect(on(ShoppingCartPage).subtotal_for_line_item(line_item)).to include(subtotal)
 end
 
 Then(/^I should see "(.*?)" as the cart total$/) do |total|
